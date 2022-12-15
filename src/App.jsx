@@ -1,18 +1,24 @@
 import './App.css'
 import logo from "./assets/32.png"
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
-    <div className="wrapper css-selector">
-      <div className='container--logo'>
-      <button><span className="text-gradient">Побеждай</span></button>
-        <div className='centered'>
-          <button className='test3'><span className="text-gradient">Твори</span></button>
+    <div>
+      <Navbar />
+      <div className="wrapper">
+        <div className='container--logo'>
           <img src={logo} alt="logo" className='logo'/>
-          <button className='test4'><span className="text-gradient">Смотри</span></button>
+          <div className='page-links'>
+            <button className='page-links-btn play'><span className="text-gradient">Играй</span></button>
+            <button className='page-links-btn watch'><span className="text-gradient">Смотри</span></button>
+            <div className="page-links--secondary">
+              <button className='page-links-btn win'><span className="text-gradient">Побеждай</span></button>
+              <button className='page-links-btn create'><span className="text-gradient">Твори</span></button>
+            </div>
+          </div>
         </div>
-      <button><span className="text-gradient">Играй</span></button>
       </div>
     </div>
   )
