@@ -6,6 +6,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'Merriweather', serif;
 }
 
 i {
@@ -34,6 +35,17 @@ button:hover {
   cursor: pointer;
 }
 
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active {
+  background-color: #e53170;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -46,30 +58,15 @@ button:hover {
 .navbar-left {
   display: flex;
   align-items: center;
+  gap: 1em;
 }
 
-.navbar a {
-  float: left;
-  text-align: center;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  /* background-color: #000; */
+.navbar-btn--left {
+  color: #fffffe;
+  padding: 1rem 2rem;
+  font-weight: 900;
+  font-size: 2.5rem;
   cursor: pointer;
-}
-
-.active {
-  background-color: #e53170;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-  margin-right: 1em;
-  gap: 0.25em;
 }
 
 .logo--navbar {
@@ -77,24 +74,82 @@ button:hover {
   margin-left: 0.5em;
 }
 
-.navbar-btn {
-  color: wheat;
-  padding: 1rem 2rem;
-  font-weight: 900;
-  font-size: 2.5rem;
+.navbar-main {
+  display: flex;
+  gap: 1em;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.link:hover {
+  cursor: pointer;
+  background-color: rgba(229, 49, 112, 60%);
+  border-radius: 0 15px 0 10px;
+  transform: translateY(-.25rem);
+  scale: 1.05; 
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  gap: 1.25em;
+}
+
+.navbar-btn--right {
+  padding: 0.75rem 1.5rem;
+  color: #fffffe;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.navbar-btn--right i {
+  margin: 0 auto;
+}
+
+.discord, .vk, .twitch, .youtube {
+  transition: all 0.25s ease-out;
+}
+
+.discord:hover {
+  scale: 1.5;
+  color: #7289da;
+}
+
+.vk:hover {
+  scale: 1.5;
+  color: #0077ff;
+}
+
+.twitch:hover {
+  scale: 1.5;
+  color: #9146FF;
+}
+
+.youtube:hover {
+  scale: 1.5;
+  color: crimson;
 }
 
 .login-btn {
+  padding: 1.25rem 2.5rem;
   background-color: #ff8906;
   color: #fffffe;
   text-transform: none;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  font-family: 'Comfortaa', cursive;
+  transition: all 0.25s ease-in;
 }
 
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.login-btn:hover {
+  background-color: #4fc4cf;
+  color: #181818;
+  scale: 1.025;
 }
 
 .container--logo {
@@ -104,14 +159,12 @@ button:hover {
   align-items: center;
   margin: 0 auto;
   min-height: 80vh;
-  /* border: 2px solid #aa5906; */
 }
 
 .logo {
   width: 35%;
   animation: spinLogo 35s infinite ease-in-out;
   animation-direction: alternate;
-  /* border: 2px solid #fa5906; */
 }
 
 .page-links {
@@ -143,6 +196,25 @@ button:hover {
   font-size: 4rem;
   letter-spacing: 5px;
   color: #fffffe;
+}
+
+.about {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  font-size: 2.5rem;
+  font-family: 'Comfortaa', cursive;
+  color: whitesmoke;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.text {
+  background-color: #e3f6f5;
+  color: #2d334a;
+  padding: 1.5rem;
 }
 
 @keyframes spinLogo {
