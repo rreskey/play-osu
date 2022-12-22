@@ -2,8 +2,8 @@ import React from 'react'
 import '../App.css'
 import logo from "../assets/32.png"
 
-export function Home() {
-  return (
+export function Home() {  
+    return (
     <div className="wrapper">
         <div className='container--logo'>
             <img src={logo} alt="logo" className='logo'/>
