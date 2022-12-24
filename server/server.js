@@ -1,17 +1,28 @@
+require('dotenv').config()
 const express = require('express')
-const app = express()
 const cors = require('cors')
-const port = 3002
+const cookieParser = require('cookie-parser')
+const router = require('./router/index')
+const port = process.env.PORT || 3005
+const app = express()
 
-app.use(cors({origin:"http://127.0.0.1:5173",credentials: true}));
+app.use(cookieParser())
+app.use(express.json())
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 
-app.post('/', (req, res) =>{
-    if (req.method === 'OPTIONS') {
-        res.send();
-        return;
+app.use('/api', router)
+
+const start = async () => {
+    try {
+        app.listen(port, () => {
+            console.log(`Server is runing on port ${port}`)
+        })
+    } catch (e) {
+        console.log(e)
     }
-})
+}
 
-app.listen(port, 'localhost', ()=>{
-    console.log(`Server is runing on port ${port}`)
-})
+start()
