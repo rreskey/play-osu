@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../App.css'
 import logo_wide from "../assets/logo_wide.png"
 import { Link } from "react-router-dom"
+import userStateQuery from '../state/userState'
 
 export default function Navbar() {
 
@@ -26,28 +27,24 @@ useEffect(() => {
 
 const auth_url = 'https://osu.ppy.sh/oauth/authorize?response_type=code&client_id=19432&redirect_uri=http://localhost:6001/api/login'
 
-const [token, setToken] = useState(null)
+// useEffect(() => {
+//     userStateQuery()
+// }, [])
 
-useEffect(() => {
-  fetch('http://localhost:6001/api/login')
-    .then(response => response.json())
-    .then(result => console.log(result))
-  // fetch('http://localhost:6001/api/auth')
-  //   .then(response => response.json())
-  //   .then(result => console.log(result))
-    console.log(token)
-    // .then(response => console.log(response.json()))
-}, [])
+const data = userStateQuery()
+console.log(data)
 
-// console.log(token)
-
-function test() {
-  fetch('http://localhost:6001/api/login')
-    .then(response => response.json())
-    .then(json => {
-      console.log(json)
-    })
-}
+// async function getData() {
+//   try {
+//       const meState = await fetch('http://localhost:6001/api/me')
+//       const jsonRes = await meState.json()
+//       console.log(jsonRes)
+//       return jsonRes
+//   } catch (e) {
+//       console.log(e)
+//   }
+//   return null
+// }
 
   return (
     <div className='navbar'>
@@ -65,7 +62,9 @@ function test() {
             <a href='https://vk.com/playosu' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-vk vk"></i></a>
             <a href='https://www.twitch.tv/playosuru' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-twitch twitch"></i></a>
             <a href='https://www.youtube.com/channel/UChNf1_khGnxReYnDsU6B6uw' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-youtube youtube"></i></a>
-            <a href={auth_url} className='login-btn navbar-btn'>Login l</a>
+            <a href={auth_url} className='login-btn navbar-btn'>Login</a>
+            {/* <button className='navbar-btn' onClick={() => userStateQuery()}>test</button> */}
+            <button className='navbar-btn' onClick={() => getData()}>test</button>
         </div>
     </div>
   )
