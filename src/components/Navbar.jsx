@@ -32,10 +32,10 @@ const auth_url = 'https://osu.ppy.sh/oauth/authorize?response_type=code&client_i
         <div className="navbar-left">
             <img src={logo_wide} alt="logo_wide" className='logo--navbar'/>
             <div className='navbar-main'>
-                <Link to={'/play-osu/'} className={`navbar-btn--left link active`}><i className="fa-solid fa-house"></i>На главную</Link>
-                <Link to={'/play-osu/about'} className={`navbar-btn--left link`}><i className="fa-sharp fa-solid fa-circle-info"></i>О проекте</Link>
-                <Link to={'/play-osu/fastcup'} className={`navbar-btn--left link`}><i className="fa-solid fa-question"></i>Формат FastCup</Link>
-                <Link to={'/play-osu/staff'} className={`navbar-btn--left link`}><i className="fa-solid fa-user"></i>Стафф</Link>
+                <Link to={'/'} className={`navbar-btn--left link active`}><i className="fa-solid fa-house"></i>На главную</Link>
+                <Link to={'/about'} className={`navbar-btn--left link`}><i className="fa-sharp fa-solid fa-circle-info"></i>О проекте</Link>
+                <Link to={'/fastcup'} className={`navbar-btn--left link`}><i className="fa-solid fa-question"></i>Формат FastCup</Link>
+                <Link to={'/staff'} className={`navbar-btn--left link`}><i className="fa-solid fa-user"></i>Стафф</Link>
             </div>
         </div>
         <div className='navbar-right'>

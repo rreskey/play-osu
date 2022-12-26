@@ -49,7 +49,7 @@ class UserController {
             req.session.refresh_at = Number(currentTS) + Number(response.expires_in)
 
             res.cookie('token', req.session.token)
-            res.redirect('http://localhost:5173/play-osu/')
+            res.redirect('http://localhost:5173/')
         } catch (err) {
             console.log(err);
             res.status(500).json({msg: `Internal Server Error.`});

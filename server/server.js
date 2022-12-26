@@ -10,9 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(session({
     secret: 'some_secret',
-    cookie: { maxAge: 86400000 },
-    saveUninitialized: true,
-    resave: true,
+    cookie: { maxAge: 86400000, sameSite: 'lax' },
 }))
 app.use(cors({
     origin: 'http://localhost:5173',

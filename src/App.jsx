@@ -11,10 +11,10 @@ function App() {
     <div>
       <Navbar />
         <Routes>
-          <Route path='/play-osu/' element={<Home />} />
-          <Route path='/play-osu/about' element={<About />} />
-          <Route path='/play-osu/fastcup' element={<FastCup />} />
-          <Route path='/play-osu/staff' element={<Staff />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/fastcup' element={<FastCup />} />
+          <Route path='/staff' element={<Staff />} />
         </Routes>
     </div>
   )

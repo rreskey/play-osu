@@ -1,6 +1,10 @@
 export default async function userStateQuery() {
     try {
-        const meState = await fetch('http://localhost:6001/api/me')
+        const meState = await fetch(`${window.location.origin}/api/me`, {
+            headers: {
+                credentials: 'include'
+            }
+        })
         const jsonRes = await meState.json()
         console.log(jsonRes)
         if (meState.status === 200) {
