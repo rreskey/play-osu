@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import '../App.css'
 import logo_wide from "../assets/logo_wide.png"
 import { Link } from "react-router-dom"
-import userStateQuery from '../state/userState'
 
 export default function Navbar() {
 
@@ -44,8 +43,6 @@ const auth_url = 'https://osu.ppy.sh/oauth/authorize?response_type=code&client_i
             <a href='https://www.twitch.tv/playosuru' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-twitch twitch"></i></a>
             <a href='https://www.youtube.com/channel/UChNf1_khGnxReYnDsU6B6uw' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-youtube youtube"></i></a>
             <a href={auth_url} className='login-btn navbar-btn'>Login</a>
-            {/* <button className='navbar-btn' onClick={() => userStateQuery()}>test</button> */}
-            <button className='navbar-btn' onClick={() => userStateQuery()}>test</button>
         </div>
     </div>
   )

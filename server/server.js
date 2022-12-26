@@ -19,7 +19,6 @@ app.use(cors({
 app.use('/api', router)
 app.use(cookieParser())
 
-
 const start = async () => {
     try {
         app.listen(port, () => {

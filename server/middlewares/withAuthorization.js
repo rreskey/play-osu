@@ -2,9 +2,7 @@ const { StatusCodes } = require('http-status-codes')
 
 async function withAuthorization(req, res, next) {
     const currentTS = new Date().valueOf / 1000
-    console.log(`middlware sessionID ${req.sessionID}`)
-    console.log(req.session)
-    console.log(req.session.token)
+
     if (!req.session?.token) {
         req.session.status = StatusCodes.FORBIDDEN
         res.send({

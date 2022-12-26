@@ -57,13 +57,11 @@ class UserController {
     }
 
     async me(req, res) {
-        console.log('ME route')
         if (!req.session?.token) {
             res.status = StatusCodes.FORBIDDEN
             console.log('ME route -- 2')
             return
         }
-        if (req.session.token) console.log('WE HAVE TOKEN')
         try {
             let response = await fetch("https://osu.ppy.sh/api/v2/me/osu", {
             headers: {
@@ -81,10 +79,8 @@ class UserController {
     }
 
     async meAsPlayer(req, res) {
-            console.log('player route')
         if (!req.session?.token) {
             res.status = StatusCodes.FORBIDDEN
-            console.log('ME route -- 2')
             return
         }
             let osuData = {}
@@ -95,7 +91,6 @@ class UserController {
             }
         })
             osuData = await response.json()
-            // let result = await req.session.body
             res.send(osuData)
         } catch (e) {
             console.log(e)
