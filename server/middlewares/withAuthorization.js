@@ -7,7 +7,10 @@ async function withAuthorization(req, res, next) {
     console.log(req.session.token)
     if (!req.session?.token) {
         req.session.status = StatusCodes.FORBIDDEN
-        // req.session.body = null
+        res.send({
+            code: 403,
+            error: 'forbidden'
+        })
         
         console.log('MIDDLEWARE WORKS --- 1')
         return
@@ -47,7 +50,10 @@ async function withAuthorization(req, res, next) {
             return next()
         } catch (e) {
             req.session.status = StatusCodes.FORBIDDEN
-            console.log(e)
+            res.send({
+                code: 403,
+                error: 'forbidden'
+            })
         }
     }
     return next()
