@@ -2,11 +2,12 @@ const { StatusCodes } = require('http-status-codes')
 
 async function withAuthorization(req, res, next) {
     const currentTS = new Date().valueOf / 1000
-    // console.log(req)
+    console.log(`middlware sessionID ${req.sessionID}`)
+    console.log(req.session)
     console.log(req.session.token)
     if (!req.session?.token) {
         req.session.status = StatusCodes.FORBIDDEN
-        req.session.body = null
+        // req.session.body = null
         
         console.log('MIDDLEWARE WORKS --- 1')
         return
@@ -26,7 +27,6 @@ async function withAuthorization(req, res, next) {
         "client_secret": process.env.CLIENT_SECRET,
         "code": req.query.code,
         "grant_type": "authorization_code",
-        "redirect_uri": "http://localhost:6001/api/login"
     }
 
     if (req.session.refresh_at < currentTS) {
@@ -41,7 +41,7 @@ async function withAuthorization(req, res, next) {
             req.session.token = response.access_token
             req.session.refresh_token = response.refresh_token
             req.session.refresh_at = Number(currentTS) + Number(response.expires_in)
-
+            
             req.session.body = 'Authorization is done!'
             
             return next()
@@ -52,5 +52,4 @@ async function withAuthorization(req, res, next) {
     }
     return next()
 }
-
 module.exports = withAuthorization

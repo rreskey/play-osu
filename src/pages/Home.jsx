@@ -1,8 +1,11 @@
 import React from 'react'
 import '../App.css'
 import logo from "../assets/32.png"
+import userStateQuery from '../state/userState'
 
-export function Home() {  
+export function Home() {
+    const data = userStateQuery()
+    console.log(data)
     return (
     <div className="wrapper">
         <div className='container--logo'>

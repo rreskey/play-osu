@@ -4,7 +4,7 @@ const withAuthorization = require('../middlewares/withAuthorization')
 const router = new Router
 
 router.get('/login', userController.login)
-// router.get('/me', userController.me)
 router.get('/me', withAuthorization, userController.me)
+router.get('/meAsPlayer', withAuthorization, userController.meAsPlayer)
 
 module.exports = router

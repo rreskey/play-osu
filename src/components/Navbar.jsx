@@ -27,25 +27,6 @@ useEffect(() => {
 
 const auth_url = 'https://osu.ppy.sh/oauth/authorize?response_type=code&client_id=19432&redirect_uri=http://localhost:6001/api/login'
 
-// useEffect(() => {
-//     userStateQuery()
-// }, [])
-
-const data = userStateQuery()
-console.log(data)
-
-// async function getData() {
-//   try {
-//       const meState = await fetch('http://localhost:6001/api/me')
-//       const jsonRes = await meState.json()
-//       console.log(jsonRes)
-//       return jsonRes
-//   } catch (e) {
-//       console.log(e)
-//   }
-//   return null
-// }
-
   return (
     <div className='navbar'>
         <div className="navbar-left">
@@ -64,7 +45,7 @@ console.log(data)
             <a href='https://www.youtube.com/channel/UChNf1_khGnxReYnDsU6B6uw' target='_blank' className='navbar-btn--right'><i className="fa-brands fa-youtube youtube"></i></a>
             <a href={auth_url} className='login-btn navbar-btn'>Login</a>
             {/* <button className='navbar-btn' onClick={() => userStateQuery()}>test</button> */}
-            <button className='navbar-btn' onClick={() => getData()}>test</button>
+            <button className='navbar-btn' onClick={() => userStateQuery()}>test</button>
         </div>
     </div>
   )

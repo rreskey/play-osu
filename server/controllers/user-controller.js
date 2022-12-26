@@ -2,8 +2,9 @@ const { StatusCodes } = require('http-status-codes')
 
 class UserController {
     async login(req, res) {
-
-    if (!req.session?.token) {
+    console.log(req.session.token)
+    console.log(`login sessionID ${req.sessionID}`)
+    if (req.session?.token) {
         req.session.status = StatusCodes.CONFLICT
         req.session.body = null
         console.log('already authorized')
@@ -45,16 +46,18 @@ class UserController {
         req.session.token = response.access_token
         req.session.refresh_token = response.refresh_token
         req.session.refresh_at = Number(currentTS) + Number(response.expires_in)
-
-        res.cookie('token', response.access_token)
+        console.log(req.session)
+        res.cookie('token', req.session.token)
         res.redirect('http://localhost:5173/play-osu/')
     } catch (err) {
         res.status(500).json({msg: `Internal Server Error.`});
     }
 }
     async me(req, res) {
-        if (!req.session.token) {
+        console.log('ME route')
+        if (!req.session?.token) {
             res.status = StatusCodes.FORBIDDEN
+            console.log('ME route -- 2')
             return
         }
         if (req.session.token) console.log('WE HAVE TOKEN')
@@ -65,13 +68,35 @@ class UserController {
             }
         })
             req.session.body = await response.json()
-            
+            let result = await req.session.body
             res.send(req.session.body)
-            return req.session.body
+            return result
         } catch (e) {
             console.log(e)
         }
-        return req.session.body
+        return result
+    }
+
+    async meAsPlayer(req, res) {
+            console.log('player route')
+        if (!req.session?.token) {
+            res.status = StatusCodes.FORBIDDEN
+            console.log('ME route -- 2')
+            return
+        }
+            let osuData = {}
+        try {
+            let response = await fetch("https://osu.ppy.sh/api/v2/me/osu", {
+            headers: {
+                Authorization: `Bearer ${req.session.token}`
+            }
+        })
+            osuData = await response.json()
+            // let result = await req.session.body
+            res.send(osuData)
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 
