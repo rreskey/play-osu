@@ -6,7 +6,6 @@ export default async function userStateQuery() {
             }
         })
         const jsonRes = await meState.json()
-        console.log(jsonRes)
         if (meState.status === 200) {
             return jsonRes
         }
@@ -15,6 +14,3 @@ export default async function userStateQuery() {
     }
     return null
 }
-
-userStateQuery()
-
