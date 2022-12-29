@@ -31,20 +31,9 @@ const auth_url = 'https://osu.ppy.sh/oauth/authorize?response_type=code&client_i
 const [data, setData] = useState(null)
 
 return (
-  <header className='inline-reverse'>
-    <input type="checkbox" id='nav-toggle' className='nav-toggle '/>
-      <nav>
-        <div className="inline">
-          <ul>
-            <Link to={'/'} className={`link`}><li className='active'><i className="fa-solid fa-house"></i>На главную</li></Link>
-            <Link to={'/about'} className={`link`}><li><i className="fa-sharp fa-solid fa-circle-info"></i>О проекте</li></Link>
-            <Link to={'/fastcup'} className={`link`}><li><i className="fa-solid fa-question"></i>Формат FastCup</li></Link>
-            <Link to={'/staff'} className={`link`}><li><i className="fa-solid fa-user"></i>Стафф</li></Link>
-          </ul>
-          <img src={logo} alt="logo" className='logo'/>
-        </div>
-      </nav>
-    <label htmlFor="nav-toggle" className='nav-toggle-label'><span></span></label>
+  <header className='inline'>
+    <img src={logo_wide} alt="logo_wide" className='logo_wide'/>
+
     <div className='nav-social-links'>
       <a href='https://discord.com/invite/aDQhsyB' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-discord discord"></i></a>
       <a href='https://vk.com/playosu' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-vk vk"></i></a>
@@ -57,7 +46,6 @@ return (
       }
     </div>  
   </header>
-  // <img src={logo_wide} alt="logo_wide" className='logo--navbar'/>
 
   )
 }

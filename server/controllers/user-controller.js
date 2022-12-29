@@ -47,7 +47,7 @@ class UserController {
             req.session.token = response.access_token
             req.session.refresh_token = response.refresh_token
             req.session.refresh_at = Number(currentTS) + Number(response.expires_in)
-
+            console.log('auth success')
             res.cookie('token', req.session.token)
             res.redirect('http://localhost:5173/')
         } catch (err) {
@@ -59,7 +59,6 @@ class UserController {
     async me(req, res) {
         if (!req.session?.token) {
             res.status = StatusCodes.FORBIDDEN
-            console.log('ME route -- 2')
             return
         }
         try {
@@ -76,25 +75,6 @@ class UserController {
             console.log(e)
         }
         return result
-    }
-
-    async meAsPlayer(req, res) {
-        if (!req.session?.token) {
-            res.status = StatusCodes.FORBIDDEN
-            return
-        }
-            let osuData = {}
-        try {
-            let response = await fetch("https://osu.ppy.sh/api/v2/me/osu", {
-            headers: {
-                Authorization: `Bearer ${req.session.token}`
-            }
-        })
-            osuData = await response.json()
-            res.send(osuData)
-        } catch (e) {
-            console.log(e)
-        }
     }
 }
 

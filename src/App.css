@@ -58,8 +58,25 @@ button:hover {
   flex-direction: row-reverse;
 }
 
+.flex {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.j-content-fs {
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
 .active {
   background-color: #e53170;
+}
+
+.icon {
+  width: 20px;
 }
 
 /* UTILS END */
@@ -74,8 +91,16 @@ button:hover {
   animation-direction: alternate;
 }
 
+.logo_wide {
+  width: 10%;
+}
+
 .logo__desktop {
   display: none;
+}
+
+.flag {
+  border-radius: 5px;
 }
 
 .discord, .vk, .twitch, .youtube {
@@ -109,13 +134,16 @@ button:hover {
 header {
   background-color: transparent;
   text-align: center;
-  position: fixed;
+  position: relative;
   z-index: 999;
   width: 100%;
   min-height: 5vh;
 }
 
 .nav-social-links {
+  margin-left: auto;
+  margin-right: 2em;
+  margin-top: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,12 +184,15 @@ header {
 
 .nav-toggle-label {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 4%;
+  left: -1%;
   margin-left: 1em;
-  height: 100%;
+  height: 5%;
   display: flex;
   align-items: center;
+  background-color: rgba(0 0 0 / .6);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .nav-toggle-label span,
@@ -192,7 +223,7 @@ header {
 nav {
   position: absolute;
   text-align: left;
-  top: 100%;
+  top: 10%;
   left: 0;
   background-color: var(--root-bg-color);
   width: 100%;
@@ -208,12 +239,13 @@ nav ul {
 }
 
 nav li {
-  margin-bottom: 1em;
+  padding-block: 0.5em;
 }
 
 nav li i {
   width: 40px;
   text-align: center;
+  margin-right: .25em;
 }
 
 nav a {
@@ -234,6 +266,130 @@ nav a {
 }
 
 /* NAVBAR END */
+
+/* PLAY SECTION START */
+
+.play {
+  width: 90%;
+  min-height: 50vh;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding-block: 2.25rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #443f42;
+  color: whitesmoke;
+}
+
+.play-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.row {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.mode-select {
+  gap: 0.5em;
+  margin-left: 3em;
+}
+
+.mode-btn {
+  background-color: #b1a3ab;
+  padding: 0.5em 0.75em;
+}
+
+.mode-btn--left {
+  border-radius: 10px 0 0 10px;
+}
+
+.mode-btn--right {
+ border-radius: 0 10px 10px 0;
+}
+
+.btn-active {
+  background-color: #f5f5f5;
+}
+
+.page-select {
+  display: flex;
+  margin-right: 1em;
+  font-size: 3rem;
+}
+
+.prev-page, .next-page {
+  background-color: #b1a3ab;
+  padding: 0.25em 0.5em;
+  font-size: 2rem;
+}
+
+.prev-page {
+  border-radius: 10px 0 0 10px;
+}
+
+.next-page {
+  border-radius: 0 10px 10px 0;
+}
+
+.cur-page {
+  padding: 0.1em 0.25em;
+  background-color: #f5f5f5;
+  color: #181818;
+}
+
+.play h2 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
+.tournament-card {
+  background-color: #1e1e1e;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  padding: 1.5rem 3rem;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  border-top-color: crimson;
+}
+
+.info-btn {
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: whitesmoke;
+  border: 1px solid palevioletred;
+  border-radius: 10px;
+}
+
+.dates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+/* PLAY SECTION END */
+
+@media screen and (max-width: 355px) {
+  .play-center {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo_wide {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 800px) {
   .inline-reverse {
@@ -266,7 +422,7 @@ nav a {
     all: unset;
     grid-column: 3 / 4;
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     align-items: center;
     margin-right: 2.25em;
     margin-left: 1.25em;
@@ -317,14 +473,6 @@ nav a {
   .nav-social-links {
     margin-right: 1.25em;
   }
-
-  /* TEMPORARY STUFF START */
-
-  .page-links, .page-links--secondary {
-    display: none;
-  }
-
-  /* TEMPORARY STUFF END */
 }
 
 @keyframes spinLogo {
