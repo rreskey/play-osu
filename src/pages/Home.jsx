@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../assets/32.png"
 import '../App.css'  
 
 export function Home() {
@@ -11,4 +10,3 @@ export function Home() {
         </div>
     )
 }
-{/* <img src={logo} alt="logo" className='logo__desktop'/> */}

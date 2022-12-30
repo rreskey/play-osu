@@ -23,6 +23,8 @@ export function Play() {
     }
   }, [])
 
+  console.log(window.innerWidth)
+
   return (
     <div className="wrapper">
       <div className="play">
@@ -39,9 +41,17 @@ export function Play() {
         </div>
         <div className="play-center">
           <h2>Текущие турниры</h2>
-          <TournamentCard />
-          <TournamentCard />
-          <TournamentCard />
+          <div className="tournaments">
+            <TournamentCard />
+            <TournamentCard />
+            <TournamentCard />
+            {window.innerWidth > 700? <TournamentCard /> : null}
+            {window.innerWidth > 700? <TournamentCard /> : null}
+            {window.innerWidth > 700? <TournamentCard /> : null}
+            {window.innerWidth > 1200? <TournamentCard /> : null}
+            {window.innerWidth > 1200? <TournamentCard /> : null}
+            {window.innerWidth > 1200? <TournamentCard /> : null}
+          </div>
         </div>
       </div>
     </div>

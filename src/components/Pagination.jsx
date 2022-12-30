@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../App.css'  
 import { Link } from "react-router-dom"
-import logo from "../assets/32.png"
 
 export default function Pagination() {
+
+  useEffect(() => {
+    const links = document.querySelectorAll('li')
+    const actives = document.getElementsByClassName('active');
+    const checkbox = document.getElementById('nav-toggle')
+
+    for(let i = 0; links.length > i; i++) {
+      links[i].onclick = function() {
+        let currentActive = actives[0];
+        checkbox.click()
+        if(links[i].classList === currentActive.classList) {
+          return links[i].classList
+        } 
+        if (currentActive) {
+          currentActive.classList.remove("active");
+        }
+        if (currentActive !== this) {
+          this.classList.add("active");
+        }
+      }
+    }
+  }, [])
+
   return (
     <div className='pagination'>
         <input type="checkbox" id='nav-toggle' className='nav-toggle '/>
@@ -11,11 +33,13 @@ export default function Pagination() {
         <nav>
             <ul>
                 <Link to={'/play'} className={`link`}><li className='active'><i className="fa-regular fa-circle-play"></i>Играй</li></Link>
+                <i className="fa-solid fa-circle"></i>
                 <Link to={'/watch'} className={`link`}><li><i className="fa-solid fa-child-reaching"></i>Смотри</li></Link>
+                <i className="fa-solid fa-circle"></i>
                 <Link to={'/create'} className={`link`}><li><i className="fa-solid fa-wand-magic"></i>Твори</li></Link>
+                <i className="fa-solid fa-circle"></i>
                 <Link to={'/victorious'} className={`link`}><li><i className="fa-solid fa-trophy"></i>Побеждай</li></Link>
             </ul>
-            {/* <img src={logo} alt="logo" className='logo'/> */}
         </nav>
     </div>  
   )
