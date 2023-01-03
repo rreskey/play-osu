@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../App.css'  
+import logo from '../assets/32.png'
 
 export function Home() {
+    useEffect(() => {
+        const links = document.querySelectorAll('li')
+        links.forEach(item => {
+            item.classList.remove('active')
+        })
+      }, [])
+
     return (
-        <div style={{color: 'wheat'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magnam est aliquam porro assumenda qui placeat at nam! Facilis, modi!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magnam est aliquam porro assumenda qui placeat at nam! Facilis, modi!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magnam est aliquam porro assumenda qui placeat at nam! Facilis, modi!
+        <div className='content-area'>
+            <img src={logo} className='logo'/>
         </div>
     )
 }

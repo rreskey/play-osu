@@ -27,7 +27,7 @@ export function Play() {
 
   return (
     <div className="wrapper">
-      <div className="play">
+      <div className="play content-area">
         <div className="row">
           <div className="mode-select">
               <button className='mode-btn mode-btn--left btn-active'><img src={std} /></button>

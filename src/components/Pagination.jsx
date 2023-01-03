@@ -13,7 +13,7 @@ export default function Pagination() {
       links[i].onclick = function() {
         let currentActive = actives[0];
         checkbox.click()
-        if(links[i].classList === currentActive.classList) {
+        if(actives[0] && links[i].classList === currentActive.classList) {
           return links[i].classList
         } 
         if (currentActive) {

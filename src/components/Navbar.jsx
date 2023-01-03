@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import '../App.css'  
 import logo_wide from "../assets/logo_wide.png"
 import logo from "../assets/32.png"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import userStateQuery from '../state/userState'
 
 export default function Navbar() {
+const navigate = useNavigate();
 
 useEffect(() => {
   const links = document.querySelectorAll('li')
   const actives = document.getElementsByClassName('active');
   for(let i = 0; links.length > i; i++) {
-    links[i].onclick = function() {
+    links[i].onClick = function() {
       let currentActive = actives[0];
       if(links[i].classList === currentActive.classList) {
         return links[i].classList
@@ -32,7 +33,7 @@ const [data, setData] = useState(null)
 
 return (
   <header className='inline'>
-    <img src={logo_wide} alt="logo_wide" className='logo_wide'/>
+    <img src={logo_wide} alt="logo_wide" className='logo_wide' onClick={() => navigate('/')}/>
     <div className='nav-social-links'>
       <a href='https://discord.com/invite/aDQhsyB' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-discord discord"></i></a>
       <a href='https://vk.com/playosu' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-vk vk"></i></a>
@@ -45,7 +46,6 @@ return (
       }
     </div>  
   </header>
-
   )
 }
 
