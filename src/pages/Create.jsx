@@ -6,7 +6,6 @@ export function Create() {
   return (
     <div className='content-area'>
         <img src={logo} className='logo'/>
-        Create
     </div>
   )
 }

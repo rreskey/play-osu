@@ -33,7 +33,7 @@ const [data, setData] = useState(null)
 
 return (
   <header className='inline'>
-    <img src={logo_wide} alt="logo_wide" className='logo_wide' onClick={() => navigate('/')}/>
+    <img src={logo_wide} alt="logo_wide" className='logo_wide' onClick={() => navigate('/play-osu/')}/>
     <div className='nav-social-links'>
       <a href='https://discord.com/invite/aDQhsyB' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-discord discord"></i></a>
       <a href='https://vk.com/playosu' target='_blank' className='nav-social-links-btn'><i className="fa-brands fa-vk vk"></i></a>

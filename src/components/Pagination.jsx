@@ -6,7 +6,7 @@ export default function Pagination() {
 
   useEffect(() => {
     const links = document.querySelectorAll('li')
-    const actives = document.getElementsByClassName('active');
+    const actives = document.getElementsByClassName('active')
     const checkbox = document.getElementById('nav-toggle')
 
     for(let i = 0; links.length > i; i++) {
@@ -32,13 +32,13 @@ export default function Pagination() {
         <label htmlFor="nav-toggle" className='nav-toggle-label'><span></span></label>
         <nav>
             <ul>
-                <Link to={'/play'} className={`link`}><li className='active'><i className="fa-regular fa-circle-play"></i>Играй</li></Link>
+                <Link to={'/play-osu/play'} className={`link`}><li className='active'><i className="fa-regular fa-circle-play"></i>Играй</li></Link>
                 <i className="fa-solid fa-circle"></i>
-                <Link to={'/watch'} className={`link`}><li><i className="fa-solid fa-child-reaching"></i>Смотри</li></Link>
+                <Link to={'/play-osu/watch'} className={`link`}><li><i className="fa-solid fa-child-reaching"></i>Смотри</li></Link>
                 <i className="fa-solid fa-circle"></i>
-                <Link to={'/create'} className={`link`}><li><i className="fa-solid fa-wand-magic"></i>Твори</li></Link>
+                <Link to={'/play-osu/create'} className={`link`}><li><i className="fa-solid fa-wand-magic"></i>Твори</li></Link>
                 <i className="fa-solid fa-circle"></i>
-                <Link to={'/victorious'} className={`link`}><li><i className="fa-solid fa-trophy"></i>Побеждай</li></Link>
+                <Link to={'/play-osu/victorious'} className={`link`}><li><i className="fa-solid fa-trophy"></i>Побеждай</li></Link>
             </ul>
         </nav>
     </div>  

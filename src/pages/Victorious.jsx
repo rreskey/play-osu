@@ -6,7 +6,6 @@ export function Victorious() {
   return (
     <div className='content-area'>
         <img src={logo} className='logo'/>
-        Victorious
     </div>
   )
 }

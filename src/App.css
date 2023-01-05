@@ -50,8 +50,8 @@ button:hover {
   justify-content: center;
   margin: 0 auto;
   margin-top: 1rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: wheat;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
   width: 90%;
   min-height: 50vh;
   border-radius: 20px;
@@ -292,7 +292,6 @@ nav a {
   align-items: unset;
   flex-direction: column;
   text-align: center;
-  background-color: #443f42;
   color: whitesmoke;
 }
 
@@ -371,7 +370,7 @@ nav a {
 }
 
 .tournament-card {
-  background-color: #1e1e1e;
+  background-color: rgba(30 30 40 / .25);
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -398,6 +397,69 @@ nav a {
 }
 
 /* PLAY SECTION END */
+
+/* WATCH SECTION START */
+
+.logo-bg {
+  display: none;
+  border-radius: 20px;
+}
+
+.watch {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.section-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 1em;
+}
+
+.section-hero h2, 
+.section-hero h3 {
+  /* color: #DD5AC0; */
+  color: pink;
+}
+
+.section-hero h3 {
+  margin-bottom: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+h3 {
+  margin-bottom: 1em;
+}
+
+.tournament {
+  width: 90%;
+  margin-bottom: 1.25em;
+  margin: 0 auto;
+}
+
+.tournament img {
+  margin: 0 auto;
+}
+
+.tournament-title {
+  margin-top: 0.7em;
+  margin-bottom: 0.8em;
+}
+
+/* WATCH SECTION END */
+
+@media screen and (max-width: 300px) {
+  .login-btn {
+    display: none; 
+  }
+  /* TODO: FIX */
+}
 
 @media screen and (max-width: 355px) {
   .play-center {
@@ -433,10 +495,6 @@ nav a {
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
     margin-top: .5em;
   }
-
-  /* .logo {
-    display: none;
-  } */
 
   nav {
     all: unset;
@@ -475,7 +533,7 @@ nav a {
     height: 5px;
     background: var(--nav-primary-color);
     position: absolute;
-    bottom: -.005em;
+    bottom: -.0025em;
     left: 0;
     right: 0;
     transform: scale(0, 1);
@@ -527,6 +585,16 @@ nav a {
   .logo_wide {
     margin-left: 1em;
   }
+
+  .logo-bg {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .text {
+    font-size: 1.75rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -537,6 +605,45 @@ nav a {
 
   .logo_wide {
     width: 15%;
+  }
+
+  .logo-bg {
+    display: block;
+    width: 45%;
+  }
+
+  .main-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-hero {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 1em auto;
+  }
+
+  .text {
+    margin-left: 1em;
+    justify-content: space-between;
+  }
+
+  .gallery {
+    display: flex;
+  }
+
+  .tournament {
+    width: 20%;
+    margin-bottom: 1em;
+  }
+
+  .gallery img {
+    transition: all 0.2s ease-in-out 0.1s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.5);
   }
 }
 
@@ -560,6 +667,10 @@ nav a {
 
   .logo_wide {
     width: 15%;
+  }
+
+  .text {
+    font-size: 2rem;
   }
 }
 

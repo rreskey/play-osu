@@ -14,12 +14,12 @@ function App() {
     <Navbar/>
     <Pagination />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/play' element={<Play />} />
-          <Route path='/watch' element={<Watch />} />
-          <Route path='/create' element={<Create />} />
-          <Route path='/victorious' element={<Victorious />} />
+          <Route path='/play-osu/' element={<Home />} />
+          <Route path='/play-osu/about' element={<About />} />
+          <Route path='/play-osu/play' element={<Play />} />
+          <Route path='/play-osu/watch' element={<Watch />} />
+          <Route path='/play-osu/create' element={<Create />} />
+          <Route path='/play-osu/victorious' element={<Victorious />} />
         </Routes>
     </>
   )
