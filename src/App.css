@@ -8,17 +8,22 @@
   --root-bg-color: #16161a;
   --btn-color: #ff8906;
   --nav-primary-color: #e53170;
-  --content-area-bg: rgba(68 63 66 / 0.4);
+  --content-area-bg: rgba(0 0 0 / 0.85);
+  --play-osu-pink-color: #DD5AC0;
+  --tournament-card-bg-color: rgba(21 23 25 / .65);
 }
 
 html {
   font-size: 62.5%;
-  /* font-family: 'Merriweather', serif; */
   font-family: 'Comfortaa', cursive;
 }
 
 body {
-  background-color: var(--root-bg-color);
+  background-image: url("../src/assets/bg-main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 img {
@@ -34,12 +39,15 @@ button:hover {
   cursor: pointer;
 }
 
+h2 {
+  color: var(--play-osu-pink-color);
+}
+
 /* UTILS START */
 
 .wrapper {
   min-height: 100vh;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
 }
@@ -50,9 +58,9 @@ button:hover {
   justify-content: center;
   margin: 0 auto;
   margin-top: 1rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--content-area-bg);
   color: whitesmoke;
-  width: 90%;
+  width: 80%;
   min-height: 50vh;
   border-radius: 20px;
 }
@@ -94,6 +102,10 @@ button:hover {
 
 .icon {
   width: 20px;
+}
+
+.container-image {
+  border-radius: 15px;
 }
 
 /* UTILS END */
@@ -281,13 +293,42 @@ nav a {
   transform: opacity .25s ease-in-out .250s;
 }
 
-/* NAVBAR END */
+/* NAVBAR END 0.75/
+
+/* HOME SECTION START */
+
+.content-area {
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1em;
+  margin: 1em;
+}
+
+.btn-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.75rem;
+  padding: 0.75rem 1.5rem;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 25px;
+}
+
+/* HOME SECTION END */
 
 /* PLAY SECTION START */
 
-.play {
+.content-area {
   padding-block: 2.25rem;
-  gap: 1rem;
+  gap: 1em;
   display: flex;
   align-items: unset;
   flex-direction: column;
@@ -302,7 +343,7 @@ nav a {
   gap: 1rem;
 }
 
-.row {
+.inline-row {
   display: flex;
   justify-content: space-between;
 }
@@ -331,7 +372,7 @@ nav a {
 
 .page-select {
   display: flex;
-  margin-right: 1em;
+  margin-right: 2em;
   font-size: 3rem;
   color: #181818;
 }
@@ -360,17 +401,19 @@ nav a {
 .play h2 {
   font-size: 3rem;
   letter-spacing: 1px;
-  text-decoration: underline;
+  color: whitesmoke;
 }
 
 .tournaments {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1em;
 }
 
 .tournament-card {
-  background-color: rgba(30 30 40 / .25);
+  background-color: var(--tournament-card-bg-color);
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -379,6 +422,19 @@ nav a {
   border-radius: 15px;
   border: 1px solid transparent;
   border-top-color: crimson;
+  width: 95%;
+}
+
+.tournament-card h3 {
+  font-size: 1.8rem;
+}
+
+.rank-range {
+  font-size: 1.4rem;
+}
+
+.host {
+  font-size: 1.6rem;
 }
 
 .info-btn {
@@ -394,6 +450,7 @@ nav a {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  font-size: 1.4rem;
 }
 
 /* PLAY SECTION END */
@@ -416,11 +473,9 @@ nav a {
   gap: 1em;
   margin: 1em;
 }
-
-.section-hero h2, 
+ 
 .section-hero h3 {
-  /* color: #DD5AC0; */
-  color: pink;
+  color: var(--play-osu-pink-color);
 }
 
 .section-hero h3 {
@@ -430,10 +485,14 @@ nav a {
 .text {
   display: flex;
   flex-direction: column;
+  line-height: 1.5;
+  font-size: 2rem;
   gap: 1em;
+  /* text-align: justify; */
 }
 
 h3 {
+  font-size: 2.8rem;
   margin-bottom: 1em;
 }
 
@@ -448,11 +507,33 @@ h3 {
 }
 
 .tournament-title {
+  font-size: 2rem;
   margin-top: 0.7em;
   margin-bottom: 0.8em;
 }
 
 /* WATCH SECTION END */
+
+/* CREATE AND  VICTORIOUS SECTION START */
+
+.cast,
+.staff,
+.supporter,
+.fame {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 1em;
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.staff a {
+  color: #4fc4cf;
+}
+
+/* CREATE AND  VICTORIOUS SECTION END */
 
 @media screen and (max-width: 300px) {
   .login-btn {
@@ -468,20 +549,36 @@ h3 {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
+  .content-area {
+    width: 90%;
+  }
+  
+  .mode-select,
+  .page-select {
+    margin-inline: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 600px) {  
+  .content-area {
+    width: 90%;
+  }
+  
+  .tournaments {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .tournaments > * {
+    flex-basis: 45%;
+  }
+
   .logo_wide {
     width: 35%;
     display: block;
     margin-top: 1em;
     margin-left: 2em;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  .tournaments {
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
   }
 }
 
@@ -508,6 +605,7 @@ h3 {
 
   nav ul {
     display: flex;
+    margin-left: 1em;
   }
 
   nav li {
@@ -574,6 +672,35 @@ h3 {
 }
 
 @media screen and (min-width: 1000px) {
+  .content-area.home {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    min-height: 70vh;
+    margin-bottom: 1em;
+  }
+  
+  .row {
+    font-size: 3rem;
+    padding: 0.5em;
+  }
+  
+  .row-one {
+    align-self: flex-start;
+    text-align: left;
+    width: 75%;
+  }
+
+  .row-two {
+    align-self: flex-end;
+    text-align: right;
+    width: 80%;
+  }
+
+  .btn-link {
+    width: 75%;
+  }
+
   nav li {
     font-size: 3.5rem;
   }
@@ -598,6 +725,14 @@ h3 {
 }
 
 @media screen and (min-width: 1200px) {
+  .row {
+    width: 60%;
+  }
+
+  .btn-link {
+    width: 75%;
+  }
+
   .tournament-card {
     font-size: 2rem;
     flex-basis: 30%;
@@ -645,9 +780,40 @@ h3 {
   .gallery img:hover {
     transform: scale(1.5);
   }
+
+  .content-container {
+    display: flex;
+  }
+
+  .content-container > * {
+    flex-basis: 50%;
+  }
 }
 
 @media screen and (min-width: 1500px) {
+  .content-area {
+    width: 80%;
+  }
+  
+  .row-one {
+    width: 45%;
+    font-size: 4rem;
+  }
+  
+  .row-two {
+    width: 53%;
+    font-size: 4rem;
+  }
+
+  .btn-link {
+    font-size: 2rem;
+  }
+
+  .tournament-card {
+    font-size: 1.25rem;
+    gap: 0.5em;
+  }
+
   .dates {
     flex-direction: row;
     justify-content: space-between;
@@ -672,20 +838,13 @@ h3 {
   .text {
     font-size: 2rem;
   }
-}
 
-@media screen and (min-width: 1500px) and (max-width: 1700px) {
   nav li {
     font-size: 4rem;
   }
 
   .play {
-    width: 75%;
-  }
-
-  .tournament-card {
-    font-size: 1.25rem;
-    gap: 0.5em;
+    width: 80%;
   }
 
   .inline.j-content-fs:nth-child(1) {
@@ -696,6 +855,10 @@ h3 {
 @media screen and (min-width: 1700px) {
   nav li {
     font-size: 4.5rem;
+  }
+
+  .tournament-card {
+    font-size: 1.7rem;
   }
 }
 

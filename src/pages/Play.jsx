@@ -28,7 +28,7 @@ export function Play() {
   return (
     <div className="wrapper">
       <div className="play content-area">
-        <div className="row">
+        <div className="inline-row">
           <div className="mode-select">
               <button className='mode-btn mode-btn--left btn-active'><img src={std} /></button>
               <button className='mode-btn mode-btn--right'><img src={ctb} /></button>
@@ -40,7 +40,7 @@ export function Play() {
           </div>
         </div>
         <div className="play-center">
-          <h2>Текущие турниры</h2>
+          <h2>Попробуй свои силы в лучших турнирах!</h2>
           <div className="tournaments">
             <TournamentCard />
             <TournamentCard />

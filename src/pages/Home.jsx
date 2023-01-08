@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import '../App.css'  
-import logo from '../assets/32.png'
 
 export function Home() {
     useEffect(() => {
@@ -11,8 +10,16 @@ export function Home() {
       }, [])
 
     return (
-        <div className='content-area'>
-            <img src={logo} className='logo'/>
+        <div className="content-area home">
+            <div className="row row-one">
+                <h2>Турниры по osu!</h2>
+                <p>Это новые возможности и новые знакомства</p>
+                <a className='btn-link' href='#'>Заходи в наш discord!</a>
+            </div>
+            <div className="row row-two">
+                <h2>Изучи меню</h2>
+                <p>Узнай, где ты можешь сыграть и посмотреть турниры!</p>
+            </div>
         </div>
     )
 }
