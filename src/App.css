@@ -126,30 +126,6 @@ h2 {
   border-radius: 5px;
 }
 
-.discord, .vk, .twitch, .youtube {
-  transition: all 0.25s ease-out;
-}
-
-.discord:hover, .vk:hover, .twitch:hover, .youtube:hover {
-  scale: 1.25;
-}
-
-.discord:hover {
-  color: #7289da;
-}
-
-.vk:hover {
-  color: #0077ff;
-}
-
-.twitch:hover {
-  color: #9146FF;
-}
-
-.youtube:hover {
-  color: crimson;
-}
-
 /* MISC END */
 
 /* NAVBAR START */
@@ -161,13 +137,14 @@ header {
   z-index: 999;
   width: 100%;
   min-height: 5vh;
+  background-color: var(--content-area-bg);
 }
 
 .nav-social-links {
   margin-left: auto;
   margin-right: 2em;
-  margin-top: 0.5em;
   display: flex;
+  gap: 0em;
   justify-content: center;
   align-items: center;
 }
@@ -175,8 +152,6 @@ header {
 .nav-social-links-btn {
   width: 50px;
   color: #fffffe;
-  margin: 0 auto;
-  font-size: 3rem;
   cursor: pointer;
 }
 
@@ -284,6 +259,11 @@ nav a {
   transform: opacity .15s ease-in-out;
 }
 
+a img {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .nav-toggle:checked ~ nav {
   transform: scale(1, 1);
 }
@@ -293,7 +273,7 @@ nav a {
   transform: opacity .25s ease-in-out .250s;
 }
 
-/* NAVBAR END 0.75/
+/* NAVBAR END */
 
 /* HOME SECTION START */
 
@@ -326,7 +306,8 @@ nav a {
 
 /* PLAY SECTION START */
 
-.content-area {
+.play.content-area {
+  width: 95%;
   padding-block: 2.25rem;
   gap: 1em;
   display: flex;
@@ -336,21 +317,11 @@ nav a {
   color: whitesmoke;
 }
 
-.play-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
 .inline-row {
   display: flex;
   justify-content: space-between;
-}
-
-.mode-select {
-  gap: 0.5em;
-  margin-left: 3em;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .mode-btn {
@@ -363,16 +334,19 @@ nav a {
 }
 
 .mode-btn--right {
- border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
 }
 
 .btn-active {
   background-color: #f5f5f5;
 }
 
+.desktop-header {
+  display: none;
+}
+
 .page-select {
   display: flex;
-  margin-right: 2em;
   font-size: 3rem;
   color: #181818;
 }
@@ -399,17 +373,24 @@ nav a {
 }
 
 .play h2 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   letter-spacing: 1px;
   color: whitesmoke;
+}
+
+.play-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .tournaments {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 1em;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .tournament-card {
@@ -422,7 +403,7 @@ nav a {
   border-radius: 15px;
   border: 1px solid transparent;
   border-top-color: crimson;
-  width: 95%;
+  border-top-width: 3px;
 }
 
 .tournament-card h3 {
@@ -488,7 +469,6 @@ nav a {
   line-height: 1.5;
   font-size: 2rem;
   gap: 1em;
-  /* text-align: justify; */
 }
 
 h3 {
@@ -512,9 +492,27 @@ h3 {
   margin-bottom: 0.8em;
 }
 
+.youtube-link {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.youtube-link > * {
+  width: 100%;
+}
+
 /* WATCH SECTION END */
 
 /* CREATE AND  VICTORIOUS SECTION START */
+
+.create.content-area,
+.victorious.content-area {
+  padding-block: 2em;
+}
+
+.create.content-area h2 {
+  text-align: center;
+}
 
 .cast,
 .staff,
@@ -522,7 +520,7 @@ h3 {
 .fame {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
   margin: 1em;
   font-size: 2.2rem;
   text-align: center;
@@ -542,10 +540,11 @@ h3 {
   /* TODO: FIX */
 }
 
-@media screen and (max-width: 355px) {
-  .play-center {
-    margin: 0 auto;
-    width: 95%;
+@media screen and (max-width: 330px) {
+  .login-btn {
+    padding: 0.5rem 1rem;
+    width: 35%;
+    letter-spacing: 1px;
   }
 }
 
@@ -560,18 +559,33 @@ h3 {
   }
 }
 
+@media screen and (min-width: 450px) {
+  .dates {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 @media screen and (min-width: 600px) {  
   .content-area {
     width: 90%;
   }
   
+  .inline-row {
+    width: 91%;
+  }
+
   .tournaments {
     flex-wrap: wrap;
     flex-direction: row;
   }
 
   .tournaments > * {
-    flex-basis: 45%;
+    flex-basis: 47%;
+  }
+
+  .dates {
+    flex-direction: column;
   }
 
   .logo_wide {
@@ -579,6 +593,11 @@ h3 {
     display: block;
     margin-top: 1em;
     margin-left: 2em;
+  }
+
+  .container-image {
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -625,13 +644,13 @@ h3 {
     position: relative;
   }
 
-  nav li::before {
+  nav li::after {
     content: '';
     display: block;
     height: 5px;
     background: var(--nav-primary-color);
     position: absolute;
-    bottom: -.0025em;
+    bottom: 0;
     left: 0;
     right: 0;
     transform: scale(0, 1);
@@ -639,7 +658,7 @@ h3 {
     transition: transform .25s ease-in-out;
   }
 
-  nav li:hover::before {
+  nav li:hover::after {
     transform: scale(1, 1);
   }
 
@@ -649,6 +668,7 @@ h3 {
 
   .pagination {
     font-size: 5rem;
+    margin-block: 0.7em;
   }
 
   .pagination i {
@@ -663,6 +683,10 @@ h3 {
     border-bottom: 5px solid gray;
     font-size: 0.2em;
   }
+
+  .container-image {
+    width: 528px;
+  }
 }
 
 @media screen and (min-width: 850px) {
@@ -672,6 +696,10 @@ h3 {
 }
 
 @media screen and (min-width: 1000px) {
+  .dates {
+    flex-direction: row;
+  }
+  
   .content-area.home {
     display: flex;
     flex-direction: column;
@@ -725,6 +753,14 @@ h3 {
 }
 
 @media screen and (min-width: 1200px) {
+  .dates {
+    flex-direction: column;
+  }
+  
+  .inline-row {
+    width: calc(100% - 12%);
+  }
+
   .row {
     width: 60%;
   }
@@ -745,6 +781,15 @@ h3 {
   .logo-bg {
     display: block;
     width: 45%;
+  }
+
+  .desktop-header {
+    display: block;
+    align-self: center;
+  }
+
+  .mobile-header {
+    display: none;
   }
 
   .main-section {
@@ -791,7 +836,12 @@ h3 {
 }
 
 @media screen and (min-width: 1500px) {
-  .content-area {
+  .dates {
+    flex-direction: row;
+  }
+  
+  .content-area,
+  .play.content-area {
     width: 80%;
   }
   

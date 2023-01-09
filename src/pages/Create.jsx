@@ -5,7 +5,7 @@ import tournaments from '../assets/tournaments.png'
 
 export function Create() {
   return (
-    <div className='content-area'>
+    <div className='content-area create'>
       <h2>Стань частью команды организаторов!</h2>
       <div className="content-container">
         <div className="cast">

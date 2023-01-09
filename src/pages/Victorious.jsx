@@ -5,7 +5,7 @@ import play_osu_black from '../assets/play_osu_black.jpg'
 
 export function Victorious() {
   return (
-    <div className='content-area'>
+    <div className='content-area victorious'>
       <h2>Получай награды за турниры!</h2>
       <div className="content-container">
         <div className="supporter">
