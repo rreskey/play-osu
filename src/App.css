@@ -10,6 +10,8 @@
   --nav-primary-color: #e53170;
   --content-area-bg: rgba(0 0 0 / 0.85);
   --play-osu-pink-color: #DD5AC0;
+  --pagination-circle-color: #CA5B97;
+  --login-btn-color: rgba(218 43 138 / 0.6);
   --tournament-card-bg-color: rgba(21 23 25 / .65);
 }
 
@@ -68,7 +70,6 @@ h2 {
 .inline, .inline-reverse {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .inline {
@@ -97,7 +98,7 @@ h2 {
 }
 
 .active {
-  border-bottom: 5px solid var(--nav-primary-color);
+  border-bottom: 2px solid var(--nav-primary-color);
 }
 
 .icon {
@@ -131,22 +132,25 @@ h2 {
 /* NAVBAR START */
 
 header {
-  background-color: transparent;
+  display: flex;
   text-align: center;
   position: relative;
   z-index: 999;
-  width: 100%;
-  min-height: 5vh;
   background-color: var(--content-area-bg);
 }
 
+header.inline {
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: none;
+}
+
 .nav-social-links {
-  margin-left: auto;
-  margin-right: 2em;
   display: flex;
-  gap: 0em;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
 }
 
 .nav-social-links-btn {
@@ -155,25 +159,42 @@ header {
   cursor: pointer;
 }
 
-.profile-btn, .profile-btn--img {
+.profile-btn {
+  /* border: 1px solid teal; */
+  padding: .75em 1.5em;
+  color: whitesmoke;
+}
+
+.pfp {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profile-btn--img {
   width: 50px;
+  border-radius: 50%;
+}
+
+.profile-btn:hover {
+  cursor: pointer;
 }
 
 .login-btn {
-  padding: 0.5rem 1.75rem;
-  margin-left: 0.2em;
-  background-color: #ff8906;
-  color: #f5f5f5;
-  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 2rem;
   letter-spacing: 2px;
-  font-family: 'Comfortaa', cursive;
-  transition: all 0.25s ease-in;
+  text-decoration: none;
+  color: #f5f5f5;
 }
 
-.login-btn:hover {
-  background-color: #4fc4cf;
-  color: #181818;
-  scale: 1.025;
+.unauthorized { 
+  width: 50px;
+  border-radius: 50%;
 }
 
 .nav-toggle {
@@ -183,15 +204,17 @@ header {
 .nav-toggle-label {
   position: absolute;
   z-index: 1000;
-  top: 4%;
+  top: 5%;
   left: -1%;
   margin-left: 1em;
   height: 5%;
   display: flex;
   align-items: center;
-  background-color: rgba(0 0 0 / .6);
+  /* background-color: var(--root-bg-color); */
+  background-color: transparent;
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid var(--pagination-circle-color);
 }
 
 .nav-toggle-label span,
@@ -534,16 +557,13 @@ h3 {
 /* CREATE AND  VICTORIOUS SECTION END */
 
 @media screen and (max-width: 300px) {
-  .login-btn {
-    display: none; 
-  }
+  
   /* TODO: FIX */
 }
 
 @media screen and (max-width: 330px) {
   .login-btn {
     padding: 0.5rem 1rem;
-    width: 35%;
     letter-spacing: 1px;
   }
 }
@@ -567,6 +587,10 @@ h3 {
 }
 
 @media screen and (min-width: 600px) {  
+  .profile-btn {
+    background-color: var(--login-btn-color);
+  }
+  
   .content-area {
     width: 90%;
   }
@@ -588,13 +612,6 @@ h3 {
     flex-direction: column;
   }
 
-  .logo_wide {
-    width: 35%;
-    display: block;
-    margin-top: 1em;
-    margin-left: 2em;
-  }
-
   .container-image {
     width: 80%;
     margin: 0 auto;
@@ -609,7 +626,20 @@ h3 {
   header {
     display: grid;
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
-    margin-top: .5em;
+  }
+
+  .logo_wide {
+    width: 150px;
+    display: block;
+    margin-left: 3em;
+  }
+
+  .nav-social-links {
+    flex-grow: 1;
+  }
+
+  .dsc {
+    margin-left: auto;
   }
 
   nav {
@@ -629,9 +659,9 @@ h3 {
 
   nav li {
     padding: 0.5rem 1rem;
-    margin-bottom: 0;
     transition: all 0.25s ease-in-out;
-    border-bottom: 5px solid gray;
+    border-bottom: 2px solid gray;
+    font-size: 3.5rem;
   }
 
   nav li:hover {
@@ -647,7 +677,7 @@ h3 {
   nav li::after {
     content: '';
     display: block;
-    height: 5px;
+    height: 2px;
     background: var(--nav-primary-color);
     position: absolute;
     bottom: 0;
@@ -679,8 +709,8 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    border-bottom: 5px solid gray;
+    color: var(--pagination-circle-color);
+    border-bottom: 2px solid gray;
     font-size: 0.2em;
   }
 
@@ -689,13 +719,11 @@ h3 {
   }
 }
 
-@media screen and (min-width: 850px) {
-  nav li {
-    font-size: 3rem;
-  }
-}
-
 @media screen and (min-width: 1000px) {
+  .login-btn {
+    margin-left: 1em;
+  }
+
   .dates {
     flex-direction: row;
   }
@@ -727,18 +755,6 @@ h3 {
 
   .btn-link {
     width: 75%;
-  }
-
-  nav li {
-    font-size: 3.5rem;
-  }
-
-  .nav-social-links, .logo_wide {
-    margin-top: 0;
-  }
-
-  .logo_wide {
-    margin-left: 1em;
   }
 
   .logo-bg {
@@ -775,12 +791,7 @@ h3 {
   }
 
   .logo_wide {
-    width: 15%;
-  }
-
-  .logo-bg {
-    display: block;
-    width: 45%;
+    margin-left: 3em;
   }
 
   .desktop-header {
@@ -802,6 +813,11 @@ h3 {
     flex-direction: row;
     width: 90%;
     margin: 1em auto;
+  }
+
+  .logo-bg {
+    display: block;
+    width: 50%;
   }
 
   .text {
@@ -877,14 +893,6 @@ h3 {
     justify-content: space-between;
   }
 
-  .logo_wide {
-    margin-left: 1em;
-  }
-
-  .logo_wide {
-    width: 15%;
-  }
-
   .text {
     font-size: 2rem;
   }
@@ -903,6 +911,10 @@ h3 {
 }
 
 @media screen and (min-width: 1700px) {
+  .logo_wide {
+    width: 250px;
+  }
+
   nav li {
     font-size: 4.5rem;
   }
