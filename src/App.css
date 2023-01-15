@@ -533,7 +533,8 @@ h3 {
   padding-block: 2em;
 }
 
-.create.content-area h2 {
+.create.content-area h2,
+.victorious.content-area h2 {
   text-align: center;
 }
 
